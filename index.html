@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TicketFlow - Employee Management</title>
+    <link rel="stylesheet" href="frontend/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Employee Management</h1>
+        <p class="subtitle">TicketFlow (Spring Boot + Supabase + Fly.io)</p>
+      </header>
+
+      <section class="card">
+        <h2>Add / Update Employee</h2>
+        <form id="employeeForm" class="grid">
+          <input type="hidden" id="employeeId" />
+
+          <label>
+            Name
+            <input id="name" type="text" placeholder="John Doe" required />
+          </label>
+
+          <label>
+            Position
+            <input id="position" type="text" placeholder="Software Engineer" required />
+          </label>
+
+          <label>
+            Department
+            <input id="department" type="text" placeholder="IT" required />
+          </label>
+
+          <label>
+            Salary
+            <input id="salary" type="number" step="0.01" min="0" placeholder="12000" required />
+          </label>
+
+          <div class="actions">
+            <button type="submit" id="submitBtn">Save</button>
+            <button type="button" id="cancelBtn" class="secondary" hidden>Cancel</button>
+          </div>
+        </form>
+
+        <div id="message" class="message" hidden></div>
+      </section>
+
+      <section class="card">
+        <div class="row">
+          <h2>Employees</h2>
+          <input id="search" type="search" placeholder="Search by name..." />
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Created</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="employeesTbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>API: <span id="apiBase"></span></small>
+      </footer>
+    </div>
+
+    <script src="frontend/config.js"></script>
+    <script src="frontend/app.js"></script>
+  </body>
+</html>
